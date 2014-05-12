@@ -1,5 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+    h1= title
+    .row(ng-controller='FormController')
+      .col-sm-6
+        form(ng-submit='send()')
+          input(type='text', ng-model='myMessage', placeholder='a message')
+          input(type='submit', class='btn-primary')
+      .col-sm-6
+        p {{myMessage}}
+
