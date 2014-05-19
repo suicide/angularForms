@@ -1,0 +1,15 @@
+form(ng-submit='send()', ng-controller='FormController')
+  .row
+    .col-sm-6
+      input(type='text', ng-model='title', placeholder='a title')
+    .col-sm-6
+  .row
+    .col-sm-6
+      textarea(ng-model='message', placeholder='a message', rows='4', cols='30')
+    .col-sm-6
+  .row
+    .col-sm-6
+      input(type='submit', class='btn-primary')
+    .col-sm-6
+      p {{result}}
+

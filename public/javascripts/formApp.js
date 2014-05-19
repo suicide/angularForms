@@ -3,8 +3,19 @@
  */
 var formApp = angular.module('formApp', []);
 
-formApp.controller('FormController', function ($scope) {
+formApp.controller('FormController', ['$scope', '$http', function ($scope, $http) {
+  $scope.submitted = false;
+
   $scope.send = function() {
-    $scope.myMessage = $scope.myMessage + '!!!'
+
+    var data = {
+      title: $scope.title,
+      message: $scope.message
+    };
+
+    $http.post('/formAction', data).success(function() {
+      $scope.result = 'SUCCESS!';
+      $scope.submitted = true;
+    })
   }
-});
+}]);

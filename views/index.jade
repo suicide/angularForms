@@ -3,11 +3,25 @@ extends layout
 block content
   .container
     h1= title
-    .row(ng-controller='FormController')
-      .col-sm-6
+    .contactForm(ng-controller='FormController')
+      .theForm(ng-show='!submitted')
         form(ng-submit='send()')
-          input(type='text', ng-model='myMessage', placeholder='a message')
-          input(type='submit', class='btn-primary')
-      .col-sm-6
-        p {{myMessage}}
+          .row
+            .col-sm-6
+              input(type='text', ng-model='title', placeholder='a title')
+            .col-sm-6
+          .row
+            .col-sm-6
+              textarea(ng-model='message', placeholder='a message', rows='4', cols='30')
+            .col-sm-6
+          .row
+            .col-sm-6
+              input(type='submit', class='btn-primary')
+            .col-sm-6
+
+      .theResult(ng-show='submitted')
+        .row
+          .col-sm-6
+            p {{result}}
+          .col-sm-6
 
